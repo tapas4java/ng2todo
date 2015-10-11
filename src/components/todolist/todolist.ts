@@ -16,6 +16,7 @@ export class TodoList {
 	
 	completeMe(todo: Todo): void { 
         todo.completed = !todo.completed; 
+        this.todoService.update(todo);
     }
     
     deleteMe(todo: Todo): void { 
@@ -24,6 +25,7 @@ export class TodoList {
 	
 	editTodo(todo: Todo): void { 
         this.todoEdit = todo; 
+        console.log(this.todoEdit == todo);
     }
     
     doneEditing($event: any, todo: Todo): void {

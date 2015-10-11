@@ -11,11 +11,13 @@ import { TodoList } from '../todolist/todolist'
 })
 class TodoApp {
     _uid: number = 0;
-    myTodos: Array<Todo> = [];
     
     constructor(public todoService: TodoService){
-        this.myTodos = todoService.getAll();
         this._uid = todoService.getCount();
+    }
+    
+    getAllTodos(): Array<Todo>{
+        return this.todoService.getAll();
     }
     
     enterTodo(inputElement: HTMLInputElement): void {
