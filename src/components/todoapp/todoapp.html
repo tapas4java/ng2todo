@@ -11,25 +11,7 @@
   
   <section id="main">
     <input id="toggle-all" type="checkbox" *ng-if="getTodoCount() > 0" (click)="toggleAll($event)">
-    <ul id="todo-list">
-      <li *ng-for="#todo of myTodos" [class]="(todo.completed)?'completed':''">
-        <div class="view" [class.hidden]="todoEdit == todo">
-          <input class="toggle" type="checkbox"
-                 (click)="completeMe(todo)"
-                 [checked]="todo.completed">
-
-          <label (dblclick)="editTodo(todo)">{{todo.title}}</label>
-          <button class="destroy" (click)="deleteMe(todo)"></button>
-        </div>
-
-        <div>
-          <input class="edit"
-            [class.visible]="todoEdit == todo"
-            [value]="todo.title"
-            (keyup)="doneEditing($event, todo)">
-        </div>
-      </li>
-    </ul>
+    <todo-list [todos]="myTodos"></todo-list>
   </section>
   
   <footer id="footer">
