@@ -42,15 +42,15 @@ gulp.task('serve', ['ts2js', 'sass'], function () {
     
     browserSync.init({
         server: {
-            baseDir: "./",
-            port: 8888,
-            logConnections: true,
-            logFileChanges: true,
-            logSnippet: false,
-            open: "local",
-            reloadOnRestart: true,
-            notify: true
-        }
+            baseDir: "./"
+        },
+        port: 8888,
+        logConnections: true,
+        logFileChanges: true,
+        logSnippet: false,
+        open: "local",
+        reloadOnRestart: true,
+        notify: true
     });
     
     // Watch for file changes
