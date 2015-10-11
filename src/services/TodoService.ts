@@ -5,8 +5,9 @@ export class TodoService {
 	
 	constructor(){
 		this.todos = [
-			{'id':1,'completed':false, 'title':'Go Home'},
-			{'id':2,'completed':false, 'title':'Enjoy Holiday'}
+			{'id':1,'completed':false, 'title':'Walk Dog!'},
+			{'id':2,'completed':true, 'title':'Learn Angular2'},
+			{'id':3,'completed':false, 'title':'Prepare for presentation'}
 		];
 	}
 	
