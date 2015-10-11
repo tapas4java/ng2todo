@@ -21,15 +21,15 @@ export class TodoService {
 		console.log('Updated!');
 	}
 	
-	delete(todo: Todo){
-		console.log(this.getAll().indexOf(todo))
+	delete(todo: Todo){	
 		let allList = this.getAll();
-		if(allList.length > 1){
-			localStorage.setItem('todos', JSON.stringify(allList.splice(this.getAll().indexOf(todo), 1)));
-		}else{
-			localStorage.setItem('todos', '[]');
-		}
-		console.log('Deleted!');
+		allList.forEach((dbTodo: Todo, index: number) => {
+			if(dbTodo.id === todo.id){
+				allList.splice(index, 1);
+				localStorage.setItem('todos', JSON.stringify(allList));
+				console.log('Deleted!');
+			}
+		});
 	}
 	
 	getAll(){

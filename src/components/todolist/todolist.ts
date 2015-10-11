@@ -25,7 +25,6 @@ export class TodoList {
 	
 	editTodo(todo: Todo): void { 
         this.todoEdit = todo; 
-        console.log(this.todoEdit == todo);
     }
     
     doneEditing($event: any, todo: Todo): void {
