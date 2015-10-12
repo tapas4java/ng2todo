@@ -1,13 +1,13 @@
-import { Component, bootstrap, NgFor, NgIf } from 'angular2/angular2';
+import { Component, bootstrap, NgIf } from 'angular2/angular2';
 import { TodoService } from '../../services/TodoService'
 import { Todo } from '../../models/Todo'
 import { TodoList } from '../todolist/todolist'
 
 @Component({
     selector: 'todo-app',
-    viewBindings: [TodoService],
+    viewBindings: [ TodoService ],
     templateUrl: 'src/components/todoapp/todoapp.html',
-    directives: [NgFor, NgIf, TodoList]
+    directives: [ NgIf, TodoList ]
 })
 class TodoApp {
     _uid: number = 0;
@@ -19,12 +19,9 @@ class TodoApp {
     }
     
     enterTodo(inputElement: HTMLInputElement): void {
-        this.addTodo(inputElement.value);
+        let newTodo = new Todo(this._nextUid(), inputElement.value, false);
+        this.todoService.add(newTodo);
         inputElement.value = '';
-    }
-    
-    addTodo(newTitle: string): void {
-        this.todoService.add(new Todo(this.nextUid(), newTitle, false)); 
     }
     
     toggleAll($event: any): void {
@@ -50,7 +47,7 @@ class TodoApp {
         return this.todoService.getCount();
     }
     
-    nextUid(): number { 
+    _nextUid(): number { 
         return ++this._uid; 
     }
     

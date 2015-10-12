@@ -5,11 +5,13 @@ import { TodoService } from '../../services/TodoService'
 @Component({
 	selector: 'todo-list',
 	templateUrl: 'src/components/todolist/todolist.html',
-	directives: [NgFor],
+	directives: [ NgFor ],
 	inputs: ['todos']
 })
 export class TodoList {
+    
 	todoEdit: Todo = null;
+    
 	constructor(public todoService: TodoService){
 		
 	}
